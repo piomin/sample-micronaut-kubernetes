@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: employee
-          image: piomin/employee:1.0
+          image: piomin/employee
           ports:
             - containerPort: 8080
 ---

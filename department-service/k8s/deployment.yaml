@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: department
-          image: piomin/department:1.0
+          image: piomin/department
           ports:
             - containerPort: 8080
 ---
