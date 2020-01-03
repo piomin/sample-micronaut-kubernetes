@@ -43,6 +43,10 @@
             <groupId>io.micronaut.kubernetes</groupId>
             <artifactId>micronaut-kubernetes-discovery-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

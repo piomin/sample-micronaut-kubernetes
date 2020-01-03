@@ -1,7 +1,9 @@
 package pl.piomin.services.department.repository;
 
+import com.mongodb.MongoClient;
 import pl.piomin.services.department.model.Department;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.stream.Collectors;
 public class DepartmentRepository {
 
 	private List<Department> departments = new ArrayList<>();
-	
+
 	public Department add(Department department) {
 		department.setId((long) (departments.size()+1));
 		departments.add(department);
