@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: organization
+  labels:
+    app: organization
+data:
+  application.yaml: |-
+    mongodb.uri: mongodb://mongodb:27017/admin
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: organization
+type: Opaque
+data:
+  mongodb.credential.userName: UGlvdF8xMjM=
+  mongodb.credential.password: cGlvdHI=
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: organization
+  labels:
+    app: organization
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: organization
+  template:
+    metadata:
+      labels:
+        app: organization
+    spec:
+      containers:
+        - name: organization
+          image: piomin/organization:1.0
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: organization
+  labels:
+    app: organization
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    app: organization
+  type: NodePort

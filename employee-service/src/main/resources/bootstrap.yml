@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: employee-service
+  config-client:
+    enabled: true
+
+kubernetes:
+  client:
+    config-maps:
+      labels:
+        - app: employee
+    secrets:
+      enabled: true
+      labels:
+        - app: employee
