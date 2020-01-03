@@ -1,33 +1,38 @@
 package pl.piomin.services.organization.repository;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 import pl.piomin.services.organization.model.Organization;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Singleton
 public class OrganizationRepository {
 
-	private List<Organization> organizations = new ArrayList<>();
-	
+	@Inject
+	MongoClient mongoClient;
+
 	public Organization add(Organization organization) {
-		organization.setId((long) (organizations.size()+1));
-		organizations.add(organization);
+		organization.setId(repository().countDocuments() + 1);
+		repository().insertOne(organization);
 		return organization;
 	}
 	
 	public Organization findById(Long id) {
-		Optional<Organization> organization = organizations.stream().filter(a -> a.getId().equals(id)).findFirst();
-		if (organization.isPresent())
-			return organization.get();
-		else
-			return null;
+		return repository().find().first();
 	}
 	
 	public List<Organization> findAll() {
+		List<Organization> organizations = new ArrayList<>();
+		repository().find().iterator().forEachRemaining(organization -> organizations.add(organization));
 		return organizations;
 	}
-	
+
+	private MongoCollection<Organization> repository() {
+		return mongoClient.getDatabase("admin").getCollection("organization", Organization.class);
+	}
+
 }
