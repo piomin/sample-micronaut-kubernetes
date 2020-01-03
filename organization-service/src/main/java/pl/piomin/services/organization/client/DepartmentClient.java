@@ -9,10 +9,10 @@ import java.util.List;
 @Client(id = "department-service", path = "/departments")
 public interface DepartmentClient {
 
-	@Get("/pl/piomin/services/organization/{organizationId}")
+	@Get("/organization/{organizationId}")
     List<Department> findByOrganization(Long organizationId);
 	
-	@Get("/pl/piomin/services/organization/{organizationId}/with-employees")
+	@Get("/organization/{organizationId}/with-employees")
     List<Department> findByOrganizationWithEmployees(Long organizationId);
 	
 }

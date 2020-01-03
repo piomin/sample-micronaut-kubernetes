@@ -9,7 +9,7 @@ import java.util.List;
 @Client(id = "employee-service", path = "/employees")
 public interface EmployeeClient {
 
-	@Get("/pl/piomin/services/department/{departmentId}")
+	@Get("/department/{departmentId}")
     List<Employee> findByDepartment(Long departmentId);
 	
 }
