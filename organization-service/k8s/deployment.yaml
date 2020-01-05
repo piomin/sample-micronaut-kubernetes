@@ -6,16 +6,19 @@ metadata:
     app: organization
 data:
   application.yaml: |-
-    mongodb.uri: mongodb://mongodb:27017/admin
+    mongodb:
+      collection: organization
+      database: admin
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   name: organization
+  labels:
+    app: organization
 type: Opaque
 data:
-  mongodb.credential.userName: UGlvdF8xMjM=
-  mongodb.credential.password: cGlvdHI=
+  mongodb.uri: bW9uZ29kYjovL21pY3JvbmF1dDptaWNyb25hdXRfMTIzQG1vbmdvZGI6MjcwMTcvYWRtaW4=
 ---
 apiVersion: apps/v1
 kind: Deployment

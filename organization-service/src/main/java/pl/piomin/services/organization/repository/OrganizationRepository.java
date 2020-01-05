@@ -2,6 +2,7 @@ package pl.piomin.services.organization.repository;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
+import io.micronaut.context.annotation.Property;
 import pl.piomin.services.organization.model.Organization;
 
 import javax.inject.Inject;
@@ -12,8 +13,16 @@ import java.util.List;
 @Singleton
 public class OrganizationRepository {
 
-	@Inject
-	MongoClient mongoClient;
+	@Property(name = "mongodb.database")
+	private String mongodbDatabase;
+	@Property(name = "mongodb.collection")
+	private String mongodbCollection;
+
+	private MongoClient mongoClient;
+
+	OrganizationRepository(MongoClient mongoClient) {
+		this.mongoClient = mongoClient;
+	}
 
 	public Organization add(Organization organization) {
 		organization.setId(repository().countDocuments() + 1);
@@ -26,13 +35,16 @@ public class OrganizationRepository {
 	}
 	
 	public List<Organization> findAll() {
-		List<Organization> organizations = new ArrayList<>();
-		repository().find().iterator().forEachRemaining(organization -> organizations.add(organization));
+		final List<Organization> organizations = new ArrayList<>();
+		repository()
+				.find()
+				.iterator()
+				.forEachRemaining(organizations::add);
 		return organizations;
 	}
 
 	private MongoCollection<Organization> repository() {
-		return mongoClient.getDatabase("admin").getCollection("organization", Organization.class);
+		return mongoClient.getDatabase(mongodbDatabase).getCollection(mongodbCollection, Organization.class);
 	}
 
 }
