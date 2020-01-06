@@ -2,12 +2,10 @@ package pl.piomin.services.employee.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Singleton;
 
 import com.mongodb.MongoClient;
-import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import io.micronaut.context.annotation.Property;
