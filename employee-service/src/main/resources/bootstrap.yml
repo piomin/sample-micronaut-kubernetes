@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: employee-service
+    name: employee
   config-client:
     enabled: true
 

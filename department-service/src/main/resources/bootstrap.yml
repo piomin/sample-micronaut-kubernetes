@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: department-service
+    name: department
   config-client:
     enabled: true
 

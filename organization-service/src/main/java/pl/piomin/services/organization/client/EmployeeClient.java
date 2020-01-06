@@ -6,7 +6,7 @@ import pl.piomin.services.organization.model.Employee;
 
 import java.util.List;
 
-@Client(id = "employee-service", path = "/employees")
+@Client(id = "employee", path = "/employees")
 public interface EmployeeClient {
 
 	@Get("/organization/{organizationId}")

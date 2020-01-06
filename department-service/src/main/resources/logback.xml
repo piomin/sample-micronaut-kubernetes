@@ -11,4 +11,7 @@
     </root>
 
     <logger name="io.micronaut.context" level="INFO" />
+    <logger name="io.micronaut.http.client" level="DEBUG"/>
+    <logger name="io.micronaut.kubernetes" level="DEBUG"/>
+
 </configuration>

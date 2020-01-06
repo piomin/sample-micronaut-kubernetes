@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: organization-service
+    name: organization
   config-client:
     enabled: true
 
