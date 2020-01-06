@@ -9,6 +9,9 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import io.micronaut.context.annotation.Property;
+import org.bson.codecs.configuration.CodecRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 import pl.piomin.services.employee.model.Employee;
 
 @Singleton
@@ -63,7 +66,10 @@ public class EmployeeRepository {
 	}
 
 	private MongoCollection<Employee> repository() {
-		return mongoClient.getDatabase(mongodbDatabase).getCollection(mongodbCollection, Employee.class);
+		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
+				CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+		return mongoClient.getDatabase(mongodbDatabase).withCodecRegistry(pojoCodecRegistry)
+				.getCollection(mongodbCollection, Employee.class);
 	}
 
 }
