@@ -9,6 +9,11 @@ data:
     mongodb:
       collection: department
       database: admin
+    kubernetes:
+      client:
+        discovery:
+          includes:
+            - employee
 ---
 apiVersion: v1
 kind: Secret
