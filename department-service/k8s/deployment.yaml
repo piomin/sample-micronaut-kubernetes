@@ -6,6 +6,9 @@ metadata:
     app: department
 data:
   application.yaml: |-
+    endpoints:
+      health:
+        details-visible: ANONYMOUS
     mongodb:
       collection: department
       database: admin
