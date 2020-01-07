@@ -6,7 +6,7 @@ In this project I'm demonstrating you the most interesting features of [Micronau
 Currently you may find here some examples of microservices implementation using different projects from Micronaut. All the examples are divided into the branches and described in a
  separated articles on my blog. Here's a full list of available examples:
 1. Using **Micronaut Kubernetes** for integration with Kubernetes discovery, `ConfigMaps` and `Secrets`. A source code is available in
- the branch [master](https://github.com/piomin/sample-spring-microservices-new/tree/master). A detailed guide may be find in the following article: [Guide to Micronaut Kubernetes
+ the branch [master](https://github.com/piomin/sample-micronaut-kubernetes/tree/master). A detailed guide may be find in the following article: [Guide to Micronaut Kubernetes
  ](https://piotrminkowski.com/2020/01/07/guide-to-micronaut-kubernetes/)
  
 ### Usage
