@@ -9,7 +9,7 @@ Currently you may find here some examples of microservices implementation using 
  the branch [master](https://github.com/piomin/sample-spring-microservices-new/tree/master). A detailed guide may be find in the following article: [Guide to Micronaut Kubernetes
  ](https://piotrminkowski.com/2020/01/07/guide-to-micronaut-kubernetes/)
  
-###Usage
+### Usage
 To successfully run example applications you need to have:
 1. JDK11+ as a default Java on your machine
 2. Maven 3.5+ available under PATH
