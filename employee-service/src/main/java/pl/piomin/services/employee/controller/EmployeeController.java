@@ -1,9 +1,5 @@
 package pl.piomin.services.employee.controller;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
@@ -12,6 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.piomin.services.employee.model.Employee;
 import pl.piomin.services.employee.repository.EmployeeRepository;
+
+import javax.inject.Inject;
+import java.util.List;
 
 @Controller("/employees")
 public class EmployeeController {

@@ -9,6 +9,20 @@ data:
     mongodb:
       collection: employee
       database: admin
+    in-memory-store.enabled: true
+    test.employees:
+      - id: 1
+        organizationId: 1
+        departmentId: 1
+        name: John Smith
+        age: 22
+        position: Developer
+      - id: 2
+        organizationId: 1
+        departmentId: 2
+        name: Paul Walker
+        age: 33
+        position: Tester
 ---
 apiVersion: v1
 kind: Secret
