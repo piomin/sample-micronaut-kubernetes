@@ -1,0 +1,8 @@
+test:
+  employees:
+    - id: 10
+      name: Piotr Minkowski
+      age: 18
+      position: developer
+      departmentId: 1
+      organizationId: 1

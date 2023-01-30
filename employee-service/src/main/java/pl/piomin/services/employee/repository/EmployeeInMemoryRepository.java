@@ -21,6 +21,7 @@ public class EmployeeInMemoryRepository implements EmployeeRepository {
 
     @Override
     public Employee add(Employee employee) {
+        employee.setId((long) (employees.size() + 1));
         employees.add(employee);
         return employee;
     }
