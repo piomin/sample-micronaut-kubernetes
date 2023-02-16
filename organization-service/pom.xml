@@ -13,7 +13,7 @@
 
     <properties>
         <exec.mainClass>pl.piomin.services.pl.piomin.services.employee.EmployeeApplication</exec.mainClass>
-        <micronaut.version>1.3.0.M2</micronaut.version>
+        <micronaut.version>3.8.4</micronaut.version>
         <jdk.version>11</jdk.version>
         <jib.maven-plugin-version>1.8.0</jib.maven-plugin-version>
         <sonar.moduleKey>${artifactId}</sonar.moduleKey>
