@@ -2,10 +2,10 @@ package pl.piomin.services.employee.repository;
 
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.runtime.context.scope.Refreshable;
+import jakarta.inject.Inject;
 import pl.piomin.services.employee.model.Employee;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

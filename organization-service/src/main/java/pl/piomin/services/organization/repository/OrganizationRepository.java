@@ -1,15 +1,14 @@
 package pl.piomin.services.organization.repository;
 
-import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import io.micronaut.context.annotation.Property;
+import jakarta.inject.Singleton;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import pl.piomin.services.organization.model.Organization;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,9 +46,9 @@ public class OrganizationRepository {
 	}
 
 	private MongoCollection<Organization> repository() {
-		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
-				CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-		return mongoClient.getDatabase(mongodbDatabase).withCodecRegistry(pojoCodecRegistry)
+//		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
+//				CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+		return mongoClient.getDatabase(mongodbDatabase)//.withCodecRegistry(pojoCodecRegistry)
 				.getCollection(mongodbCollection, Organization.class);
 	}
 

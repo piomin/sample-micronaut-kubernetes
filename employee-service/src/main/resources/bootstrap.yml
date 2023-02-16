@@ -13,3 +13,7 @@ kubernetes:
       enabled: true
       labels:
         - app: employee
+
+mongodb:
+  uri: mongodb://localhost:27017/test
+  database: test
