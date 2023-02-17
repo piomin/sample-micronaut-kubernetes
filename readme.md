@@ -1,5 +1,12 @@
 # Guide to Micronaut Kubernetes Demo Project [![Twitter](https://img.shields.io/twitter/follow/piotr_minkowski.svg?style=social&logo=twitter&label=Follow%20Me)](https://twitter.com/piotr_minkowski)
 
+[![CircleCI](https://circleci.com/gh/piomin/sample-micronaut-kubernetes.svg?style=svg)](https://circleci.com/gh/piomin/sample-micronaut-kubernetes)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/dashboard?id=piomin_sample-micronaut-kubernetes)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=piomin_sample-micronaut-kubernetes&metric=bugs)](https://sonarcloud.io/dashboard?id=piomin_sample-micronaut-kubernetes)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=piomin_sample-micronaut-kubernetes&metric=coverage)](https://sonarcloud.io/dashboard?id=piomin_sample-micronaut-kubernetes)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=piomin_sample-micronaut-kubernetes&metric=ncloc)](https://sonarcloud.io/dashboard?id=piomin_sample-micronaut-kubernetes)
+
 In this project I'm demonstrating you the most interesting features of [Micronaut Kubernetes Project](https://micronaut-projects.github.io/micronaut-kubernetes/snapshot/guide/) for integration between Micronaut and Kubernetes API.
 
 ## Getting Started 
