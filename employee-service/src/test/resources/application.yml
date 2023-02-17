@@ -6,3 +6,7 @@ test:
       position: developer
       departmentId: 1
       organizationId: 1
+
+mongodb:
+  database: test
+  collection: employee
