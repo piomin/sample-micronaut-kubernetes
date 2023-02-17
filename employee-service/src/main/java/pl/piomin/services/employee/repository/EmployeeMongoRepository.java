@@ -1,20 +1,21 @@
 package pl.piomin.services.employee.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.inject.Singleton;
-
-import com.mongodb.MongoClient;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import io.micronaut.context.annotation.Property;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.runtime.context.scope.Refreshable;
+import org.bson.codecs.LongCodec;
+import org.bson.codecs.configuration.CodecProvider;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import pl.piomin.services.employee.model.Employee;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Refreshable
 @Requires(missingProperty = "in-memory-store.enabled")
@@ -69,9 +70,15 @@ public class EmployeeMongoRepository implements EmployeeRepository {
 	}
 
 	private MongoCollection<Employee> repository() {
-		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
-				CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-		return mongoClient.getDatabase(mongodbDatabase).withCodecRegistry(pojoCodecRegistry)
+		CodecProvider pojoCodecProvider = PojoCodecProvider.builder()
+				.register("pl.piomin.services.employee.model")
+				.build();
+
+		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(
+				MongoClientSettings.getDefaultCodecRegistry(),
+				CodecRegistries.fromProviders(pojoCodecProvider));
+		return mongoClient.getDatabase(mongodbDatabase)
+				.withCodecRegistry(pojoCodecRegistry)
 				.getCollection(mongodbCollection, Employee.class);
 	}
 

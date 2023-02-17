@@ -1,18 +1,14 @@
 package pl.piomin.services.department.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.inject.Singleton;
-
-import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import io.micronaut.context.annotation.Property;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.PojoCodecProvider;
+import jakarta.inject.Singleton;
 import pl.piomin.services.department.model.Department;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Singleton
 public class DepartmentRepository {
@@ -57,9 +53,9 @@ public class DepartmentRepository {
 	}
 
 	private MongoCollection<Department> repository() {
-		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
-				CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-		return mongoClient.getDatabase(mongodbDatabase).withCodecRegistry(pojoCodecRegistry)
+//		CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
+//				CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+		return mongoClient.getDatabase(mongodbDatabase)//.withCodecRegistry(pojoCodecRegistry)
 				.getCollection(mongodbCollection, Department.class);
 	}
 

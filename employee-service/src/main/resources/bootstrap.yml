@@ -3,6 +3,9 @@ micronaut:
     name: employee
   config-client:
     enabled: true
+  test:
+    resources:
+      enabled: true
 
 kubernetes:
   client:
@@ -13,3 +16,8 @@ kubernetes:
       enabled: true
       labels:
         - app: employee
+
+#mongodb:
+#  uri: mongodb://localhost:27017/test
+#  database: test
+
