@@ -10,12 +10,16 @@ import jakarta.inject.Inject;
 import org.instancio.Instancio;
 import org.instancio.Select;
 import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 import pl.piomin.services.employee.model.Employee;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
+@Testcontainers
 @Property(name = "in-memory-store.enabled", value = "true")
 public class EmployeeControllerTests {
 
