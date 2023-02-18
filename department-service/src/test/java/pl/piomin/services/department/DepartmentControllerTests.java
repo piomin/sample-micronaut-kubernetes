@@ -54,7 +54,7 @@ public class DepartmentControllerTests {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     void findById() {
         Department department = client.toBlocking().retrieve("/departments/" + id, Department.class);
         assertNotNull(department);
@@ -62,7 +62,7 @@ public class DepartmentControllerTests {
     }
 
     @Test
-    @Order(2)
+    @Order(4)
     void findByOrganization() {
         Department[] departments = client.toBlocking().retrieve("/departments/organization/" + 1L, Department[].class);
         assertTrue(departments.length > 0);
