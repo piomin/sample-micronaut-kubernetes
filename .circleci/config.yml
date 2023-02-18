@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   analyze:
     docker:
-      - image: 'cimg/openjdk:11.0'
+      - image: 'cimg/openjdk:17.0'
     steps:
       - checkout
       - run:
@@ -11,21 +11,20 @@ jobs:
           command: mvn verify sonar:sonar -DskipTests
 
 executors:
-  j11:
-    docker:
-      - image: 'cimg/openjdk:11.0'
+  linux:
+    machine:
+      image: ubuntu-2204:2022.04.2
+    environment:
+      architecture: "amd64"
+      platform: "linux/amd64"
 
 orbs:
   maven: circleci/maven@1.4.0
-  tcc: atomicjar/testcontainers-cloud-orb@0.1.0
 
 workflows:
   maven_test:
     jobs:
       - maven/test:
-          executor: j11
-          context: Testcontainers
-          pre-steps:
-            - tcc/setup
+          executor: linux
       - analyze:
           context: SonarCloud
