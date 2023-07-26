@@ -7,7 +7,7 @@
     <parent>
         <groupId>io.micronaut</groupId>
         <artifactId>micronaut-parent</artifactId>
-        <version>3.9.2</version>
+        <version>3.9.4</version>
     </parent>
 
     <groupId>pl.piomin.services</groupId>
@@ -26,7 +26,7 @@
         <sonar.projectKey>piomin_sample-micronaut-kubernetes</sonar.projectKey>
         <sonar.organization>piomin</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <micronaut.version>3.9.2</micronaut.version>
+        <micronaut.version>3.9.4</micronaut.version>
         <jib.maven-plugin-version>1.8.0</jib.maven-plugin-version>
     </properties>
 
