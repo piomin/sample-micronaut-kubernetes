@@ -39,19 +39,19 @@ public class DepartmentController {
 
 	@Get
 	public List<Department> findAll() {
-		LOGGER.info("Department find");
+		LOGGER.info("Find all");
 		return repository.findAll();
 	}
 
 	@Get("/organization/{organizationId}")
 	public List<Department> findByOrganization(Long organizationId) {
-		LOGGER.info("Department find: organizationId={}", organizationId);
+		LOGGER.info("Find: organizationId={}", organizationId);
 		return repository.findByOrganization(organizationId);
 	}
 
 	@Get("/organization/{organizationId}/with-employees")
 	public List<Department> findByOrganizationWithEmployees(Long organizationId) {
-		LOGGER.info("Department find: organizationId={}", organizationId);
+		LOGGER.info("Find with employees: organizationId={}", organizationId);
 		List<Department> departments = repository.findByOrganization(organizationId);
 		departments.forEach(d -> d.setEmployees(employeeClient.findByDepartment(d.getId())));
 		return departments;

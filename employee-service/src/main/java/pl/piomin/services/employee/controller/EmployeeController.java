@@ -17,8 +17,11 @@ public class EmployeeController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
-	@Inject
 	EmployeeRepository repository;
+
+	public EmployeeController(EmployeeRepository repository) {
+		this.repository = repository;
+	}
 
 	@Post
 	public Employee add(@Body Employee employee) {
@@ -34,19 +37,19 @@ public class EmployeeController {
 
 	@Get
 	public List<Employee> findAll() {
-		LOGGER.info("Employees find");
+		LOGGER.info("Find all");
 		return repository.findAll();
 	}
 
 	@Get("/department/{departmentId}")
 	public List<Employee> findByDepartment(Long departmentId) {
-		LOGGER.info("Employees find: departmentId={}", departmentId);
+		LOGGER.info("Find: departmentId={}", departmentId);
 		return repository.findByDepartment(departmentId);
 	}
 
 	@Get("/organization/{organizationId}")
 	public List<Employee> findByOrganization(Long organizationId) {
-		LOGGER.info("Employees find: organizationId={}", organizationId);
+		LOGGER.info("Find: organizationId={}", organizationId);
 		return repository.findByOrganization(organizationId);
 	}
 

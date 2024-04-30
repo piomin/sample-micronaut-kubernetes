@@ -19,13 +19,16 @@ public class OrganizationController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(OrganizationController.class);
 	
-	@Inject
 	OrganizationRepository repository;
-	@Inject
 	DepartmentClient departmentClient;
-	@Inject
 	EmployeeClient employeeClient;
-	
+
+	public OrganizationController(OrganizationRepository repository, DepartmentClient departmentClient, EmployeeClient employeeClient) {
+		this.repository = repository;
+		this.departmentClient = departmentClient;
+		this.employeeClient = employeeClient;
+	}
+
 	@Post
 	public Organization add(@Body Organization organization) {
 		LOGGER.info("Organization add: {}", organization);
@@ -34,19 +37,19 @@ public class OrganizationController {
 	
 	@Get
 	public List<Organization> findAll() {
-		LOGGER.info("Organization find");
+		LOGGER.info("Find all");
 		return repository.findAll();
 	}
 	
 	@Get("/{id}")
 	public Organization findById(Long id) {
-		LOGGER.info("Organization find: id={}", id);
+		LOGGER.info("Find: id={}", id);
 		return repository.findById(id);
 	}
 
 	@Get("/{id}/with-departments")
 	public Organization findByIdWithDepartments(Long id) {
-		LOGGER.info("Organization find: id={}", id);
+		LOGGER.info("Find with departments: id={}", id);
 		Organization organization = repository.findById(id);
 		organization.setDepartments(departmentClient.findByOrganization(organization.getId()));
 		return organization;
@@ -62,7 +65,7 @@ public class OrganizationController {
 	
 	@Get("/{id}/with-employees")
 	public Organization findByIdWithEmployees(Long id) {
-		LOGGER.info("Organization find: id={}", id);
+		LOGGER.info("Find with employees: id={}", id);
 		Organization organization = repository.findById(id);
 		organization.setEmployees(employeeClient.findByOrganization(organization.getId()));
 		return organization;
