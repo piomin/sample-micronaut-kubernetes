@@ -12,14 +12,13 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.testcontainers.junit.jupiter.Testcontainers;
 import pl.piomin.services.employee.model.Employee;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
-@Testcontainers
+//@Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmployeeMongoTests {
 

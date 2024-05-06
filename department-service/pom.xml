@@ -13,7 +13,7 @@
 
     <properties>
         <exec.mainClass>pl.piomin.services.employee.DepartmentApplication</exec.mainClass>
-        <sonar.moduleKey>${artifactId}</sonar.moduleKey>
+        <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
         <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
     </properties>
 

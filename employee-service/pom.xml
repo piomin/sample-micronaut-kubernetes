@@ -13,7 +13,7 @@
 
     <properties>
         <exec.mainClass>pl.piomin.services.employee.EmployeeApplication</exec.mainClass>
-        <sonar.moduleKey>${artifactId}</sonar.moduleKey>
+        <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
         <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
     </properties>
 
@@ -34,10 +34,10 @@
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-management</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.micronaut.data</groupId>
-            <artifactId>micronaut-data-mongodb</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.micronaut.data</groupId>-->
+<!--            <artifactId>micronaut-data-mongodb</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.micronaut.mongodb</groupId>
             <artifactId>micronaut-mongo-sync</artifactId>
@@ -73,18 +73,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>mongodb</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-http-client</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
