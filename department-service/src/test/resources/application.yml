@@ -8,8 +8,8 @@ micronaut:
       default:
         num-threads: 3
       httpclient:
-        num-threads: 5
+        num-threads: 3
   http:
     client:
-      read-timeout: 5s
+      read-timeout: 20s
       event-loop-group: httpclient
