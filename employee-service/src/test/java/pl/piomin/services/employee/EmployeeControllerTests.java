@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
-//@Testcontainers
 @Property(name = "in-memory-store.enabled", value = "true")
 public class EmployeeControllerTests {
 

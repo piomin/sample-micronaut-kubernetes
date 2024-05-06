@@ -10,3 +10,15 @@ test:
 mongodb:
   database: test
   collection: employee
+
+micronaut:
+  netty:
+    event-loops:
+      default:
+        num-threads: 3
+      httpclient:
+        num-threads: 5
+  http:
+    client:
+      read-timeout: 5s
+      event-loop-group: httpclient
