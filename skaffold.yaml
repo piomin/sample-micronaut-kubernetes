@@ -26,7 +26,7 @@ build:
     gitCommit: {}
 manifests:
   rawYaml:
-    - k8s/mongodb-*.yaml
+    - k8s/mongo-*.yaml
     - department-service/k8s/*.yaml
     - employee-service/k8s/*.yaml
     - organization-service/k8s/*.yaml

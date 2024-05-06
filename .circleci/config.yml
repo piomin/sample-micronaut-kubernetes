@@ -52,6 +52,22 @@ jobs:
           name: Delete Kind Cluster
           command: |
             kind delete cluster --name c1
+  test:
+    executor: machine_executor_amd64
+    steps:
+      - checkout
+      - run:
+          name: Install OpenJDK 21
+          command: |
+            java -version
+            sudo apt-get update && sudo apt-get install openjdk-21-jdk
+            sudo update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+            sudo update-alternatives --set javac /usr/lib/jvm/java-21-openjdk-amd64/bin/javac
+            java -version
+            export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+      - run:
+          name: Maven Tests
+          command: mvn test
 
 orbs:
   maven: circleci/maven@1.4.1
@@ -67,8 +83,11 @@ executors:
 workflows:
   maven_test:
     jobs:
-      - maven/test:
-          executor: machine_executor_amd64
+#      - maven/test:
+#          executor: machine_executor_amd64
+      - test
       - analyze:
           context: SonarCloud
-      - deploy-k8s
+      - deploy-k8s:
+          requires:
+            - test
