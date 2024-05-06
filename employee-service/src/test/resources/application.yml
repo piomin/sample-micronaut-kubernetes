@@ -15,10 +15,10 @@ micronaut:
   netty:
     event-loops:
       default:
-        num-threads: 3
+        num-threads: 1
       httpclient:
-        num-threads: 5
+        num-threads: 1
   http:
     client:
-      read-timeout: 5s
+      read-timeout: 10s
       event-loop-group: httpclient
