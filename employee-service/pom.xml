@@ -52,6 +52,11 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
+            <groupId>io.micronaut.testresources</groupId>
+            <artifactId>micronaut-test-resources-client</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>io.micronaut.test</groupId>
             <artifactId>micronaut-test-junit5</artifactId>
             <scope>test</scope>

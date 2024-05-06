@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
-//@Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmployeeMongoTests {
 
