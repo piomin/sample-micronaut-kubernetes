@@ -17,7 +17,7 @@ public class EmployeeInMemoryRepository implements EmployeeRepository {
     @Inject
     private EmployeesInitialList employeesInitialList;
 
-    private List<Employee> employees = new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
 
     @Override
     public Employee add(Employee employee) {
@@ -43,19 +43,19 @@ public class EmployeeInMemoryRepository implements EmployeeRepository {
     public List<Employee> findByDepartment(Long departmentId) {
         return employees.stream()
                 .filter(employee -> employee.getDepartmentId().equals(departmentId))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public List<Employee> findByOrganization(Long organizationId) {
         return employees.stream()
                 .filter(employee -> employee.getOrganizationId().equals(organizationId))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @PostConstruct
     public void init() {
-        employeesInitialList.getEmployees().forEach(employee -> employees.add(employee));
+        employees.addAll(employeesInitialList.getEmployees());
     }
 
 }

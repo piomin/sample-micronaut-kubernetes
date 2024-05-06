@@ -12,14 +12,12 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.testcontainers.junit.jupiter.Testcontainers;
 import pl.piomin.services.organization.model.Organization;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @MicronautTest
-@Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class OrganizationControllerTests {
 

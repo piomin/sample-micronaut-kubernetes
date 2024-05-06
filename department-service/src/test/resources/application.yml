@@ -1,3 +1,15 @@
 mongodb:
   database: test
   collection: department
+
+micronaut:
+  netty:
+    event-loops:
+      default:
+        num-threads: 3
+      httpclient:
+        num-threads: 3
+  http:
+    client:
+      read-timeout: 20s
+      event-loop-group: httpclient
