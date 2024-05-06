@@ -1,0 +1,34 @@
+apiVersion: skaffold/v4beta5
+kind: Config
+metadata:
+  name: sample-spring-microservices-kubernetes
+build:
+  artifacts:
+    - image: piomin/department
+      jib:
+        project: department-service
+        args:
+          - -DskipTests
+    - image: piomin/employee
+      jib:
+        project: employee-service
+        args:
+          - -DskipTests
+    - image: piomin/gateway
+      jib:
+        project: gateway-service
+    - image: piomin/organization
+      jib:
+        project: organization-service
+        args:
+          - -DskipTests
+  tagPolicy:
+    gitCommit: {}
+manifests:
+  rawYaml:
+    - k8s/mongodb-*.yaml
+    - department-service/k8s/*.yaml
+    - employee-service/k8s/*.yaml
+    - organization-service/k8s/*.yaml
+deploy:
+  kubectl: {}

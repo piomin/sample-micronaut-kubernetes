@@ -1,5 +1,8 @@
 package pl.piomin.services.employee.model;
 
+import io.micronaut.serde.annotation.Serdeable;
+
+@Serdeable
 public class Employee {
 
 	private Long id;
