@@ -26,7 +26,7 @@
         <sonar.projectKey>piomin_sample-micronaut-kubernetes</sonar.projectKey>
         <sonar.organization>piomin</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <micronaut.version>4.6.6</micronaut.version>
+        <micronaut.version>4.7.0</micronaut.version>
         <jib.maven-plugin-version>1.8.0</jib.maven-plugin-version>
         <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
     </properties>
